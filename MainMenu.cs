@@ -12,9 +12,9 @@ using System.Xml;
 
 namespace CarService
 {
-    public partial class Form1 : Form
+    public partial class MainMenu : Form
     {
-        public Form1()
+        public MainMenu()
         {
             InitializeComponent();  
         }
@@ -35,40 +35,15 @@ namespace CarService
             timeTitle.Text = "Time Required";
             Label totalTitle = new Label();
             totalTitle.Text = "Total";
-            
-            Control[] title = new Control[] { workType, timeTitle, materialTitle,space, totalTitle};
+            totalTitle.Margin = new Padding(26, 1, 9, 0);
+
+            Control[] title = new Control[] { workType, materialTitle, timeTitle, totalTitle};
             worksheetForm.flowLayoutPanel.Controls.AddRange(title);
-            worksheetForm.flowLayoutPanel.SetFlowBreak(title[4], true);
+            worksheetForm.flowLayoutPanel.SetFlowBreak(title[3], true);
 
-            //foreach (Work workData in WorkSheet)
-            //{
-                //string[] dataArray = line.Split(';');
-
-                
-                //foreach (string data in workData)
-                //{
-                   // Label newLabel = new Label();
-                    //newLabel.Name = "lbl" + data;
-                   // newLabel.Text = data;
-                   // worksheetForm.flowLayoutPanel.Controls.Add(newLabel);
-                    
-                //}
-
-                                
-                /*double time = Convert.ToDouble(dataArray[1]);
-                double mateiral = Convert.ToDouble(dataArray[2]);
-                Work.MaterialCost.Add(mateiral);
-                Work.TimeCost.Add(time);
-
-                Label total = new Label();
-                Work.TotalCost.Add(mateiral + (time * 300));
-
-                
-                worksheetForm.flowLayoutPanel.Controls.Add(total);
-                worksheetForm.flowLayoutPanel.SetFlowBreak(total, true);*/
-            //}
+            
             worksheetForm.ShowDialog();
-            this.Close();
+            //this.Visible = false;
         }
 
         //private List<Work> workSheet = new List<Work>();
@@ -87,8 +62,15 @@ namespace CarService
             {
                 WorkSheet = wp.ParseFiles<Work>(openFile.FileName);
 
-
+                worksheetToolStripMenuItem.Enabled = true;
+                paymentToolStripMenuItem.Enabled = true;
             }
+        }
+
+        private void paymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Payment paymentForm = new Payment();
+            paymentForm.ShowDialog();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace CarService
         {
             
 
-            foreach (Work workData in Form1.WorkSheet)
+            foreach (Work workData in MainMenu.WorkSheet)
             {
                 
                 Label workType = new Label();
@@ -84,25 +85,70 @@ namespace CarService
         
         private void ShowCheckedTotal(object sender, System.EventArgs e)
         {
-            for(int i = 0; i < chkBox.Count; i++)
+            double material = 0, time = 0;
+            for (int i = 0; i < chkBox.Count; i++)
             {
                 
                 double total = 0;
                 //string msg = string.Empty;
-
+                
                 if (chkBox[i].Checked && chkBox[i].Enabled)
                 {
-                    total = Form1.WorkSheet[i].MaterialCost + (Form1.WorkSheet[i].TimeReq * 300);
+                    material += MainMenu.WorkSheet[i].MaterialCost;
+                    time += MainMenu.WorkSheet[i].TimeReq * 300;
+                    total = MainMenu.WorkSheet[i].MaterialCost + (MainMenu.WorkSheet[i].TimeReq * 300);
                     totalCost[i].Text = Convert.ToString(total);
                     
                 }
                 else
                 {
                     totalCost[i].Text = "";
+                    
                 }
-                
+                txtMaterial.Text = Convert.ToString(material);
+                txtTime.Text = Convert.ToString(time);
                 //MessageBox.Show(msg);
-            }    
+            }  
+            
+           
+        }
+
+        private void Worksheet_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Do you want to exit?", "Worksheet Registeration",
+         MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                
+                MainMenu f = new MainMenu();
+                //f.worksheetToolStripMenuItem.Enabled = true;
+                //f.paymentToolStripMenuItem.Enabled = true;
+                
+                this.Visible = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+
+            Work paymentData = new Work
+            {
+                MaterialCost = Convert.ToDouble(txtMaterial.Text),
+                TimeCost = Convert.ToDouble(txtTime.Text),
+                TotalCost = Convert.ToDouble(txtMaterial.Text) + Convert.ToDouble(txtTime.Text),
+                Count = 1
+            };
+
+            MainMenu.WorkSheet.Add(paymentData);
+            MessageBox.Show("Paysheet registered!");
+
+            foreach(CheckBox chk in chkBox)
+            {
+                chk.Checked = false;
+            }
         }
     }
 }

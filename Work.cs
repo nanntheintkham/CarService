@@ -16,7 +16,10 @@ namespace CarService
 
         public double TotalCost { get; set; }
 
-        
+        public double MaterialTotal { get; set; }
+        public double TimeTotal { get; set; }
+
+        public double Count { get; set; }
         
     }
 }

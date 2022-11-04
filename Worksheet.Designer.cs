@@ -33,7 +33,7 @@ namespace CarService
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTime = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtMaterial = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,7 +55,7 @@ namespace CarService
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnRegister);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtTime);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtMaterial);
             this.groupBox1.Controls.Add(this.label5);
@@ -74,13 +74,14 @@ namespace CarService
             this.btnRegister.TabIndex = 11;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // textBox1
+            // txtTime
             // 
-            this.textBox1.Location = new System.Drawing.Point(360, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
-            this.textBox1.TabIndex = 10;
+            this.txtTime.Location = new System.Drawing.Point(360, 34);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.Size = new System.Drawing.Size(100, 26);
+            this.txtTime.TabIndex = 10;
             // 
             // label6
             // 
@@ -131,6 +132,7 @@ namespace CarService
             this.Controls.Add(this.flowLayoutPanel);
             this.Name = "Worksheet";
             this.Text = "Form2";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Worksheet_FormClosing);
             this.Load += new System.EventHandler(this.Worksheet_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -144,7 +146,7 @@ namespace CarService
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private GroupBox groupBox1;
         private Button btnRegister;
-        private TextBox textBox1;
+        private TextBox txtTime;
         private Label label6;
         private TextBox txtMaterial;
         private Label label5;

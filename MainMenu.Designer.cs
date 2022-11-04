@@ -1,6 +1,6 @@
 ﻿namespace CarService
 {
-    partial class Form1
+    partial class MainMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,7 @@
             this.quitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(802, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(802, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -62,6 +62,7 @@
             // 
             // worksheetToolStripMenuItem
             // 
+            this.worksheetToolStripMenuItem.Enabled = false;
             this.worksheetToolStripMenuItem.Name = "worksheetToolStripMenuItem";
             this.worksheetToolStripMenuItem.Size = new System.Drawing.Size(216, 29);
             this.worksheetToolStripMenuItem.Text = "Worksheet registeration";
@@ -69,9 +70,11 @@
             // 
             // paymentToolStripMenuItem
             // 
+            this.paymentToolStripMenuItem.Enabled = false;
             this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
-            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(96, 29);
+            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(96, 32);
             this.paymentToolStripMenuItem.Text = "Payment";
+            this.paymentToolStripMenuItem.Click += new System.EventHandler(this.paymentToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -85,14 +88,14 @@
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(62, 29);
             this.quitToolStripMenuItem.Text = "Quit";
             // 
-            // Form1
+            // MainMenu
             // 
             this.BackgroundImage = global::CarService.Properties.Resources.car_servcice;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(802, 574);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainMenu";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
