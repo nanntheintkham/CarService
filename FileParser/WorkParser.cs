@@ -9,6 +9,7 @@ namespace CarService
 {
     internal class WorkParser : IFileParser
     {
+        //Parse the txt file and read into the list
         public List<T> ParseFiles<T>(string filePath)
         {
             List<Work> workData = new List<Work>();
@@ -24,7 +25,7 @@ namespace CarService
                     Work wdb = new Work
                     {
                         WorkType = parts[0],
-                        TimeReq = Convert.ToDouble(parts[1]),
+                        Minutes = Convert.ToInt16(parts[1]),
                         MaterialCost = Convert.ToDouble(parts[2])
                     };
                     workData.Add(wdb);

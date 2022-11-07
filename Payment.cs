@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarService
@@ -17,26 +11,48 @@ namespace CarService
             InitializeComponent();
         }
 
-         
-        
 
+
+        //form close event -> will clear the worksheet list we parsed into the file and the workdata file
         private void Payment_FormClosing(object sender, FormClosingEventArgs e)
         {
-           
-            this.Visible = false;
+            MainMenu.WorkSheet.Clear();
+            Worksheet.WorksheetRegistered.Clear();
+            this.Hide();
+
+            MainMenu f = new MainMenu();
+            f.Show();
+
+
         }
 
+        //loading Payment form
+        //will display all the infos indeed for payment
         private void Payment_Load_1(object sender, EventArgs e)
         {
-            double materialTotal = MainMenu.WorkSheet.Sum(x => x.MaterialCost);
-            double serviceTotal = MainMenu.WorkSheet.Sum(x => x.TimeCost);
-            double total = MainMenu.WorkSheet.Sum(x => x.TotalCost);
-            double count = MainMenu.WorkSheet.Sum(x => x.Count);
+            //finding sum for every data in WorksheetData List for final payment
+            double materialTotal = Worksheet.WorksheetRegistered.Sum(x => x.MaterialTotal);
+            double serviceTotal = Worksheet.WorksheetRegistered.Sum(x => x.TimeTotal);
+            double total = Worksheet.WorksheetRegistered.Sum(x => x.TotalCost);
+            int sheetCount = Worksheet.WorksheetRegistered.Sum(x => x.WorksheetCount);
+            int count = Worksheet.WorksheetRegistered.Sum(x => x.Count);
 
-            txtCount.Text = count.ToString();
-            txtMaterial.Text = materialTotal.ToString();
-            txtService.Text = serviceTotal.ToString();
-            txtTotal.Text = total.ToString();
+            int hours = Worksheet.WorksheetRegistered.Sum(x => x.InvoicedHours);
+            int minutes = Worksheet.WorksheetRegistered.Sum(x => x.InvoicedMinutes);
+            if (minutes >= 60)
+            {
+                hours += minutes / 60;
+                minutes %= 60;
+            }
+
+            lblWsheetCount.Text = sheetCount.ToString() + " db";
+            lblWorkCount.Text = count.ToString() + " db";
+            lblMaterial.Text = materialTotal.ToString() + " Ft";
+            lblService.Text = serviceTotal.ToString() + " Ft";
+            lblTotal.Text = total.ToString() + " Ft";
+            lblInTime.Text = hours.ToString() + " h " + minutes.ToString() + " m";
         }
+
+
     }
 }

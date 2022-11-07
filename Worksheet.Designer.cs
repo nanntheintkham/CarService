@@ -37,7 +37,6 @@ namespace CarService
             this.label6 = new System.Windows.Forms.Label();
             this.txtMaterial = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.siticoneVScrollBar1 = new Siticone.Desktop.UI.WinForms.SiticoneVScrollBar();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +48,7 @@ namespace CarService
             this.flowLayoutPanel.Location = new System.Drawing.Point(4, 7);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
             this.flowLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 7, 0, 7);
-            this.flowLayoutPanel.Size = new System.Drawing.Size(740, 461);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(757, 461);
             this.flowLayoutPanel.TabIndex = 1;
             // 
             // groupBox1
@@ -110,28 +109,16 @@ namespace CarService
             this.label5.TabIndex = 7;
             this.label5.Text = "Material Costs";
             // 
-            // siticoneVScrollBar1
-            // 
-            this.siticoneVScrollBar1.InUpdate = false;
-            this.siticoneVScrollBar1.LargeChange = 10;
-            this.siticoneVScrollBar1.Location = new System.Drawing.Point(746, 8);
-            this.siticoneVScrollBar1.Name = "siticoneVScrollBar1";
-            this.siticoneVScrollBar1.ScrollbarSize = 23;
-            this.siticoneVScrollBar1.Size = new System.Drawing.Size(23, 460);
-            this.siticoneVScrollBar1.TabIndex = 3;
-            this.siticoneVScrollBar1.ThumbSize = 350F;
-            this.siticoneVScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.siticoneVScrollBar1_Scroll);
-            // 
             // Worksheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.RosyBrown;
             this.ClientSize = new System.Drawing.Size(773, 550);
-            this.Controls.Add(this.siticoneVScrollBar1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.flowLayoutPanel);
             this.Name = "Worksheet";
-            this.Text = "Form2";
+            this.Text = "Worksheet Registeration";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Worksheet_FormClosing);
             this.Load += new System.EventHandler(this.Worksheet_Load);
             this.groupBox1.ResumeLayout(false);
@@ -150,6 +137,5 @@ namespace CarService
         private Label label6;
         private TextBox txtMaterial;
         private Label label5;
-        private Siticone.Desktop.UI.WinForms.SiticoneVScrollBar siticoneVScrollBar1;
     }
 }

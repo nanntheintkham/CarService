@@ -63,6 +63,16 @@ namespace CarService.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ATF_supermechanic__img {
+            get {
+                object obj = ResourceManager.GetObject("ATF_supermechanic__img", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap car_servcice {
             get {
                 object obj = ResourceManager.GetObject("car_servcice", resourceCulture);

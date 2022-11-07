@@ -49,15 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\WorksheetData.cs" />
     <Compile Include="Payment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Payment.Designer.cs">
       <DependentUpon>Payment.cs</DependentUpon>
     </Compile>
-    <Compile Include="WorkParser.cs" />
-    <Compile Include="IFileParser.cs" />
-    <Compile Include="Work.cs" />
+    <Compile Include="FileParser\WorkParser.cs" />
+    <Compile Include="FileParser\IFileParser.cs" />
+    <Compile Include="Model\Work.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +111,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\car_servcice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_img.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ATF_supermechanic-_img.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
