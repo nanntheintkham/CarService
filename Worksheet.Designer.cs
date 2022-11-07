@@ -43,7 +43,7 @@ namespace CarService
             // flowLayoutPanel
             // 
             this.flowLayoutPanel.AutoScroll = true;
-            this.flowLayoutPanel.AutoSize = true;
+            this.flowLayoutPanel.AutoSize = false;
             this.flowLayoutPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flowLayoutPanel.Location = new System.Drawing.Point(4, 7);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
